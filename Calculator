@@ -1,0 +1,56 @@
+# Function Definitions
+def add(a, b):
+    return a + b
+
+def subtract(a, b):
+    return a - b
+
+def multiply(a, b):
+    return a * b
+
+def divide(a, b):
+    if b == 0:
+        return "Error: Cannot divide by zero"
+    return a / b
+
+# Main Loop
+while True:
+    print("\nSimple Calculator")
+    print("-------------------")
+    
+    # Take input from user
+    try:
+        num1 = float(input("Enter first number: "))
+        num2 = float(input("Enter second number: "))
+    except ValueError:
+        print("Invalid input. Please enter numeric values.")
+        continue
+
+    print("Choose operation:")
+    print("1. Add (+)")
+    print("2. Subtract (-)")
+    print("3. Multiply (*)")
+    print("4. Divide (/)")
+    
+    choice = input("Enter choice (1/2/3/4): ")
+
+    # Perform operation
+    if choice == '1' or choice == '+':
+        result = add(num1, num2)
+    elif choice == '2' or choice == '-':
+        result = subtract(num1, num2)
+    elif choice == '3' or choice == '*':
+        result = multiply(num1, num2)
+    elif choice == '4' or choice == '/':
+        result = divide(num1, num2)
+    else:
+        print("Invalid operation selected.")
+        continue
+
+    print("Result:", result)
+
+    # Ask if the user wants to continue
+    again = input("Do you want to perform another calculation? (y/n): ")
+    if again.lower() != 'y':
+        print("Goodbye!")
+        break
